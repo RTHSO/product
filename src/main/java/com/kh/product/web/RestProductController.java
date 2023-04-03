@@ -4,6 +4,7 @@ import com.kh.product.dao.Product;
 import com.kh.product.svc.ProductSVC;
 import com.kh.product.web.rest.SaveRest;
 import com.kh.product.web.rest.UpdateRest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class RestProductController {
 
   //상품등록
   @PostMapping
-  public RestResponse<Object> save(@RequestBody SaveRest saveRest){
+  public RestResponse<Object> save(@Valid @RequestBody SaveRest saveRest ){
     RestResponse<Object> res = null;
     log.info("saveRest={}",saveRest);
 
